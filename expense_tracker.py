@@ -7,4 +7,8 @@ class Expense:
         self.date=expense_date if expense_date else date.today().isoformat()
     def __str__(self):
         return f"{self.date} | {self.category} | {self.amount} | {self.description}"
+    
+expenses=[]
+new_expenses=Expense(amount=250,category="Food",description="lunch")
+expenses.append(new_expenses)
         
