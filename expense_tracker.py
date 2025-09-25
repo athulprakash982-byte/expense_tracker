@@ -36,7 +36,7 @@ def total_by_category():
     total=sum(exp.sum for exp in expenses if exp.category.lower()==category.lower())
     print("\nSum of the category: {total}\n")
 
-    
+
 while True:
     print("=============================")
     print("      Expense Tracker       ")
@@ -51,7 +51,7 @@ while True:
     if choice == "1":
         add_expense()
     elif choice == "2":
-        view_expenses()
+        view_expense()
     elif choice == "3":
         total_by_category()
     elif choice == "4":
