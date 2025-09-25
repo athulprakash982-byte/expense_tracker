@@ -9,6 +9,53 @@ class Expense:
         return f"{self.date} | {self.category} | {self.amount} | {self.description}"
     
 expenses=[]
-new_expenses=Expense(amount=250,category="Food",description="lunch")
-expenses.append(new_expenses)
-        
+
+def add_expense():
+    amount=input("Enter the amount: ")
+    category=input("Enter the category: ")
+    description=input("Enter the description: ")
+    try:
+        expense=Expense(amount,category,description)
+        expenses.append(expense)
+        print("Expense added")
+    except ValueError:
+        print("Invalid amount. Please enter a number.\n")
+
+def view_expense():
+    if not expenses:
+        return f"No expenses recorded"
+    else:
+        print("\nAll expenses")
+        for exp in expenses:
+            print(exp)
+def total_by_category():
+    if not expenses:
+        print("No expenses recorded")
+        return
+    category=input("Enter category to calculate total: ")
+    total=sum(exp.sum for exp in expenses if exp.category.lower()==category.lower())
+    print("\nSum of the category: {total}\n")
+
+    
+while True:
+    print("=============================")
+    print("      Expense Tracker       ")
+    print("=============================")
+    print("1. Add a new expense")
+    print("2. View all expenses")
+    print("3. View total by category")
+    print("4. Quit")
+
+    choice = input("Enter your choice (1-4): ")
+
+    if choice == "1":
+        add_expense()
+    elif choice == "2":
+        view_expenses()
+    elif choice == "3":
+        total_by_category()
+    elif choice == "4":
+        print("Goodbye!")
+        break
+    else:
+        print("Invalid choice. Please select 1-4.\n")
